@@ -1,0 +1,342 @@
+/* static/css/style_login.css (Stile Dark Cybersecurity) */
+
+/* VARIABILI PER COLORI - Assicurati che siano coerenti con la dashboard */
+:root {
+    --color-bg-dark: #121212;
+    --color-bg-card: #1e1e1e;
+    --color-accent-green: #00ff7f; /* Verde fluo */
+    --color-accent-cyan: #00ffff;  /* Ciano / Tron Blue */
+    --color-text-light: #e0e0e0;
+    --color-shadow-cyan: rgba(0, 255, 255, 0.4); 
+    --color-shadow-green: rgba(0, 255, 127, 0.4); 
+}
+
+/* Font e reset base */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Consolas:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Usiamo Consolas/Monospace per coerenza con lo stile terminale */
+    font-family: 'Consolas', monospace; 
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Sfondo piatto e scuro per un look più pulito e "hacker" */
+    background-color: var(--color-bg-dark); 
+    overflow: hidden;
+    color: var(--color-text-light);
+}
+
+.login-container {
+    /* La card principale è scura */
+    background: var(--color-bg-card); 
+    /* Bordo ciano per effetto neon */
+    border: 1px solid rgba(0, 255, 255, 0.15); 
+    border-radius: 10px;
+    /* Ombra ciano/verde più marcata */
+    box-shadow: 0 0 30px var(--color-shadow-cyan); 
+    width: 380px;
+    padding: 40px 30px 40px;
+    position: relative;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+    box-shadow: 0 0 40px var(--color-shadow-green);
+}
+
+/* Titolo "Login" */
+h1 {
+    color: var(--color-accent-green);
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-shadow: 0 0 5px rgba(0, 255, 127, 0.6);
+}
+
+/* Cerchio con icona utente (simula un prompt del terminale) */
+.login-icon {
+    /* Sfondo scuro, ma con accento ciano */
+    background: var(--color-bg-dark); 
+    border: 3px solid var(--color-accent-cyan);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    /* Posizionato sopra il contenitore */
+    margin: -75px auto 30px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px var(--color-shadow-cyan);
+}
+
+.login-icon svg {
+    /* L'icona è bianca o dello stesso colore del testo */
+    fill: var(--color-text-light); 
+    width: 35px;
+    height: 35px;
+}
+
+/* Input wrapper con icona */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 15px 14px 50px;
+    /* Sfondo input leggermente più chiaro di card */
+    background: rgba(40, 40, 40, 0.8); 
+    border-radius: 4px;
+    /* Bordo sottile ciano */
+    border: 1px solid rgba(0, 255, 255, 0.3); 
+    color: var(--color-text-light);
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+}
+
+.input-group input:focus {
+    /* Bordo e ombra verdi quando selezionato */
+    border-color: var(--color-accent-green);
+    box-shadow: 0 0 8px rgba(0, 255, 127, 0.6);
+    background: rgba(40, 40, 40, 0.95);
+}
+
+/* Icona dentro input */
+.input-group .icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    fill: var(--color-accent-cyan);
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+}
+
+/* Remember me e forgot password container (Mantenuto per struttura ma stilizzato) */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 35px;
+    user-select: none;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.options input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    /* Accento verde fluo per checkbox */
+    accent-color: var(--color-accent-green); 
+    cursor: pointer;
+}
+
+.options a {
+    /* Link ciano */
+    color: var(--color-accent-cyan); 
+    font-style: normal;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.options a:hover {
+    color: var(--color-accent-green);
+}
+
+/* Bottone login */
+button.login-btn {
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    border-radius: 4px;
+    /* Sfondo con gradiente ciano-verde (stile neon) */
+    background: linear-gradient(90deg, var(--color-accent-cyan) 0%, var(--color-accent-green) 100%); 
+    color: var(--color-bg-dark); /* Testo scuro sul pulsante chiaro */
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* Ombra per evidenziare il pulsante */
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4); 
+    transition: background 0.3s ease, transform 0.1s;
+}
+
+button.login-btn:hover {
+    /* Hover inverte il gradiente e aumenta l'ombra */
+    background: linear-gradient(90deg, var(--color-accent-green) 0%, var(--color-accent-cyan) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 25px var(--color-shadow-green);
+}
+
+/* Stile per i messaggi di errore (importante per Flask flash) */
+.error-message {
+    color: var(--color-locked); /* Rosso acceso per gli errori */
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* CONTENITORE INPUT */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin: 12px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Effetto hover */
+.input-group:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+/* Icona dentro l’input-group */
+.input-group .icon {
+    width: 22px;
+    height: 22px;
+    fill: #000000;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+/* Input e Select */
+.input-group input,
+.input-group select {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #000000;
+    font-size: 1rem;
+    padding: 6px;
+}
+
+/* Placeholder */
+.input-group input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+/* Select */
+.input-group select {
+    appearance: none;
+    cursor: pointer;
+}
+
+/* Label sopra il select */
+.input-group label {
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    display: block;
+}
+
+
+/* FOOTER Cybersecurity Style */
+.login-footer {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+.login-footer p {
+    margin-bottom: 6px;
+    text-shadow: 0 0 6px var(--color-shadow-cyan);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.footer-links a {
+    color: var(--color-accent-cyan);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-accent-green);
+    text-shadow: 0 0 6px var(--color-shadow-green);
+}
+
+/* BOX GENERALE DELLE PAGINE INFO (Credits, About, Contact) */
+.info-box {
+    width: 70%;
+    max-width: 900px;
+    margin: 60px auto;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 40px 50px;
+    box-shadow: 0 0 35px var(--color-shadow-cyan);
+    color: var(--color-text-light);
+}
+
+/* Titolo grande stile neon */
+.info-box h1 {
+    color: var(--color-accent-green);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    text-shadow: 0 0 6px var(--color-shadow-green);
+}
+
+/* Sottotitoli */
+.info-box h2 {
+    color: var(--color-accent-cyan);
+    margin-bottom: 10px;
+}
+
+/* Paragrafi */
+.info-box p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Liste */
+.info-box ul {
+    text-align: left;
+    margin-top: 10px;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Effetto Hover leggero ( opzionale ) */
+.info-box:hover {
+    box-shadow: 0 0 45px var(--color-shadow-green);
+    transition: 0.3s ease;
+}

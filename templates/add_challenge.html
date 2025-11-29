@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Aggiungi Challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_admin.css') }}">
+</head>
+<body>
+
+    <h1>Inserisci Nuova Challenge</h1>
+
+    <div class="form-wrapper">
+        <div class="form-box">
+            <form action="{{ url_for('submit_challenge') }}" method="POST">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="title">Titolo</label>
+                        <input type="text" id="title" name="title" placeholder="Es. Codice Morse" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="description">Descrizione</label>
+                        <textarea id="description" name="description" placeholder="Spiega brevemente la challenge..." required></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="flag">Flag</label>
+                        <input type="text" id="flag" name="flag" placeholder="Es. SPWRGRG{...}" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="category">Categoria</label>
+                        <select id="category" name="category" required>
+                            <option value="Cripto">Cripto</option>
+                            <option value="Misc">Misc</option>
+                            <option value="Web">Web</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">Salva Challenge</button>
+                </div>
+            </form>
+
+            <a class="back-link" href="{{ url_for('admin_dashboard') }}">← Torna alla dashboard admin</a>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <div class="group">
+            <h2>Challenge esistenti</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titolo</th>
+                        <th>Categoria</th>
+                        <th>Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for challenge in challenges %}
+                        <tr>
+                            <td>{{ challenge.id }}</td>
+                            <td>{{ challenge.title }}</td>
+                            <td>{{ challenge.category }}</td>
+                            <td>
+                                <form action="{{ url_for('delete_challenge', challenge_id=challenge.id) }}" method="POST" onsubmit="return confirm('Vuoi davvero eliminare questa challenge?');">
+                                    <button type="submit" class="delete-btn">🗑 Elimina</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
