@@ -23,7 +23,7 @@ def get_db_connection():
 #         password="user",
 #         database="ctf_platform"
 #     )
-# Alias per compatibilità con il codice precedente
+
 def get_db():
     return get_db_connection()
 
@@ -37,7 +37,7 @@ def login():
     db = get_db()
     cursor = db.cursor(dictionary=True)
 
-    # Recupera tutti i team tranne l'admin
+    #prende tutti i team tranne quello admin (id=1)
     cursor.execute("SELECT * FROM ctf_groups WHERE id != %s", (1,))
     teams = cursor.fetchall()
 
@@ -119,8 +119,7 @@ def dashboard():
     db = get_db_connection()
     cursor = db.cursor(dictionary=True)
 
-    # Recupera tutte le challenge, ordinando per CATEGORIA e poi per ID
-    # La query DEVE includere la colonna 'category' che hai aggiunto in MySQL.
+    # Recupera tutte le challenge
     cursor.execute("SELECT * FROM challenges ORDER BY category, id ASC")
     all_challenges = cursor.fetchall()
 
@@ -136,16 +135,15 @@ def dashboard():
     cursor.close()
     db.close()
 
-    # NUOVA LOGICA: Raggruppa le challenge per categoria (es: {"Web": [c1, c3], "Cripto": [c2, c4]})
+    # Raggruppa le challenge per categoria
     categorized_challenges = {}
     for challenge in all_challenges:
-        # Usa .capitalize() per avere un titolo della categoria pulito (es. 'web' -> 'Web')
+
         category = challenge['category'].capitalize() 
         if category not in categorized_challenges:
             categorized_challenges[category] = []
         categorized_challenges[category].append(challenge)
 
-    # Passa il dizionario raggruppato al template, usando il NUOVO nome variabile
     return render_template("dashboard.html", 
                            categorized_challenges=categorized_challenges, 
                            completed=completed)
@@ -155,7 +153,7 @@ def dashboard():
 
 
 # ---------------------------------------------------------
-# CHALLENGE PAGE (Logica di sblocco è lasciata invariata)
+# CHALLENGE PAGE 
 # ---------------------------------------------------------
 @app.route("/challenge/<int:challenge_id>")
 def challenge_page(challenge_id):
@@ -199,14 +197,13 @@ def challenge_page(challenge_id):
 # ---------------------------------------------------------
 # ADMIN DASHBOARD
 # ---------------------------------------------------------
-from flask import session, redirect, url_for, flash
 
 @app.route('/admin')
 def admin_dashboard():
-    # Controlla se l'utente è loggato e se è admin
+    
     if 'username' not in session or session['username'] != 'admin.LG.07#':
         flash("Accesso negato: solo l'admin può vedere questa pagina.", "danger")
-        return redirect(url_for('login'))  # reindirizza alla pagina di login
+        return redirect(url_for('login'))  
 
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
