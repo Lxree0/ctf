@@ -88,7 +88,12 @@
     <!-- Script per le immagini cadenti -->
 <!-- Script per le immagini cadenti -->
 <script>
-    const imgSrc = "{{ url_for('static', filename='img/images-removebg-preview.png') }}";
+    // Array di immagini diverse
+    const imgSources = [
+        "{{ url_for('static', filename='img/spwnzati.jpg') }}",
+        "{{ url_for('static', filename='img/images-removebg-preview.png') }}",
+    ];
+
     const maxImages = 20; // Numero massimo di immagini contemporanee
     const spawnInterval = 200; // Intervallo di generazione in ms
 
@@ -96,7 +101,9 @@
         if (document.querySelectorAll(".falling-img").length >= maxImages) return;
 
         const img = document.createElement("img");
-        img.src = imgSrc;
+
+        // Scegli un'immagine casuale dall'array
+        img.src = imgSources[Math.floor(Math.random() * imgSources.length)];
         img.className = "falling-img";
 
         // Posizione orizzontale casuale
@@ -105,7 +112,7 @@
         // Partenza più alta (fino a -200px)
         img.style.top = - (100 + Math.random() * 100) + "px";
 
-        // Dimensione leggermente più grande e casuale (70px → 100px)
+        // Dimensione casuale
         const size = 80 + Math.random() * 40;
         img.style.width = size + "px";
         img.style.height = size + "px";
@@ -121,7 +128,6 @@
 
     setInterval(createFallingImage, spawnInterval);
 </script>
-
 
 
 </body>

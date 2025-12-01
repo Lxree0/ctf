@@ -20,7 +20,6 @@
 
 body {
     margin: 0;
-    /* Font che richiama uno stile tecnico */
     font-family: 'Consolas', 'Courier New', monospace; 
     background-color: var(--color-bg-dark);
     min-height: 100vh;
@@ -29,8 +28,10 @@ body {
     
     /* Centra il contenuto principale (sia dashboard che singola sfida) */
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* ---------------------------------------------------------
@@ -329,15 +330,17 @@ body {
 
 /* FOOTER Cybersecurity Style */
 .login-footer {
-    position: absolute;
-    bottom: 15px;
     width: 100%;
     text-align: center;
     color: var(--color-text-light);
     font-size: 0.85rem;
     opacity: 0.8;
     letter-spacing: 1px;
+
+    margin-top: 60px;  /* distanza dall’elemento sopra */
+    padding: 20px 0;
 }
+
 
 .login-footer p {
     margin-bottom: 6px;

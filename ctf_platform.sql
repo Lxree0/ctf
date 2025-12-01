@@ -1,5 +1,5 @@
 -- Selezione del database
-USE ctf_platform;
+USE ctfdashboard;
 
 -- Eliminazione tabelle se esistono (ordine corretto)
 DROP TABLE IF EXISTS challenge_completion;
