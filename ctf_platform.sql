@@ -69,7 +69,7 @@ INSERT INTO challenges (title, description, flag, category) VALUES
 ('Enchantment Gliphs', 'Sei di fronte a un\'antica incudine con un testo misterioso inciso. Questi sono i glifi degli incantesimi di Minecraft! Traduci i simboli nel nostro alfabeto per scoprire la flag nascosta e completare l\'incantesimo.', 'SPWGRG{4LW4YSPUTM3ND1NG}', 'Cripto'),
 ('Phantom', 'Un blocco segreto di Minecraft nasconde la chiave per la flag! Devi usare le tue abilità di ricerca (OSINT) per identificare questo blocco e trovare due valori cruciali: il suo ID numerico (della versione Java Edition) e l\'anno in cui è stato introdotto nel gioco.', 'SPWGRG{PHANTOM_ID529_2018}', 'Misc'),
 ('Hog Rider Hunt', 'Hai visto questa immagine in un forum di Clash Royale. Devi usare le tue abilità di ricerca per trovare i dettagli esatti della carta Domatore di Cinghiali. Il codice segreto è composto dal costo in Elisir della carta e l\'anno in cui è stata rilasciata nel gioco.', 'SPWGRG{H0G_RIDER_4_2016}', 'Misc'),
-('Spwnzati Wi-fi', 'desc', 'SPWGRG{4LW415_CH4NGE_,M3!!}', 'Web'),
-('Clash Royale 1', 'desc', 'SPWGRG{H0G_R1D3R}', 'Web'),
-('Clash Royale 2', 'desc', 'SPWGRG{TR4V3RS3_TH3_P4TH}', 'Web'),
-('Ti piacciono i Biscotti?', 'desc', 'SPWGRG{1M_5O_D3L1C10U5}', 'Web')
+('NEVER CHANGE THE PASSWORD', 'Oh no! Hai dimenticato la password del wifi della scuola ma non vuoi che nessuno lo sappia. Prova ad accedere al portale per scoprirla!', 'SPWGRG{4LW415_CH4NGE_,M3!!}', 'Web'),
+('DEEP SEARCH', 'Un enigma nascosto dietro le quinte: solo chi osserva con attenzione riesce a svelare ciò che non appare subito.', 'SPWGRG{H0G_R1D3R}', 'Web'),
+('UNIQUE RIDERS LOL', 'Un percorso segreto attende chi ha il coraggio di esplorare oltre l\indirizzo visibile.', 'SPWGRG{TR4V3RS3_TH3_P4TH}', 'Web'),
+('GIORGI BISCUITS', 'Dolci e croccanti, nascondono un piccolo segreto che si rivela solo a chi guarda più a fondo.', 'SPWGRG{1M_5O_D3L1C10U5}', 'Web')
