@@ -24,6 +24,9 @@
 
                     {% if challenge.id in completed %}
                     <p style="color:#00ff00;">Completata ✅</p>
+                    <a
+                        href="{{ url_for('challenge_page', challenge_id=challenge.id) }}"><button>Apri
+                            Challenge</button></a>
 
                     {% elif challenge.id > 1 and (challenge.id - 1) not in
                     completed %}
