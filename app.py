@@ -9,6 +9,7 @@ app.secret_key = "supersecretkey"  # Cambialo in produzione
 # ---------------------------------------------------------
 # DATABASE
 # ---------------------------------------------------------
+'''
 def get_db_connection():
     return mysql.connector.connect(
         host="127.0.0.1",
@@ -16,13 +17,15 @@ def get_db_connection():
         password="l0r3nz01306!",
         database="CTFDashboard"
 )
-# def get_db_connection():
-#     return mysql.connector.connect(
-#         host="localhost",
-#         user="user",
-#         password="user",
-#         database="ctf_platform"
-#     )
+'''
+
+def get_db_connection():
+    return mysql.connector.connect(
+        host="172.16.51.245",
+        user="admctf",
+        password="l0r3nz01306!",
+        database="CTFDashboard"
+)
 
 def get_db():
     return get_db_connection()
