@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Dashboard</title>
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='css/style_dashboard.css') }}">
+    </head>
+    <body>
+        <div class="dashboard-container">
+            <h1 class="page-title">CyberTrials</h1>
+            {% for category, challenges_in_category in
+            categorized_challenges.items() %}
+
+            <h1 class="category-title">{{ category }}</h1>
+            <hr>
+
+            <div class="category-section">
+                {% for challenge in challenges_in_category %}
+
+                <div class="ctf-box">
+                    <h2>{{ challenge.title }}</h2>
+
+                    {% if challenge.id in completed %}
+                    <p style="color:#00ff00;">Completata ✅</p>
+
+                    {% elif challenge.id > 1 and (challenge.id - 1) not in
+                    completed %}
+                    <p style="color:#ff6347;">Bloccato🔒</p>
+
+                    {% else %}
+                    <a
+                        href="{{ url_for('challenge_page', challenge_id=challenge.id) }}"><button>Apri
+                            Challenge</button></a>
+                    {% endif %}
+                </div>
+
+                {% endfor %}
+            </div>
+
+            {% endfor %}
+        </div>
+
+        <footer class="login-footer" >
+
+            <p>© 2025 CyberSecurity Dashboard — All Rights Reserved</p>
+            <br>
+            <p>Platform created By Lorenzo Lega and Simone Giove</p>
+            <div class="footer-links">
+                <a href="{{ url_for('PlatformCred') }}">Platform & Challs
+                    Credits</a>
+                <a href="{{ url_for('about') }}">about us</a>
+                <a href="{{ url_for('contact') }}">Contact</a>
+            </div>
+        </footer>
+
+    </body>
+
+</html>

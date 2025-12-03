@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clash Royale Fan Site</title>
+
+<!-- Font stile cartone -->
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
+<style>
+/* ====== GLOBAL ====== */
+body {
+    margin: 0;
+    background: linear-gradient(#1b2d75, #0e1a45);
+    font-family: 'Bangers', cursive;
+    color: #fff;
+}
+
+/* ====== NAVBAR ====== */
+nav {
+    background: #0c112b;
+    border-bottom: 5px solid #d9a300;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    color: #ffd800;
+    font-size: 2.5rem;
+    text-shadow: 3px 3px #000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+    transition: .2s;
+}
+
+nav ul li a:hover {
+    color: #ffd800;
+    transform: scale(1.1);
+}
+
+/* ====== HERO / BANNER ====== */
+.hero {
+    height: 430px;
+    background: url('https://cdn.supercell.com/supercell.com/200912181227/supercell.com/files/clash-royale-share.jpg') no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.hero h2 {
+    position: relative;
+    font-size: 4rem;
+    color: #ffd800;
+    text-shadow: 4px 4px #000;
+    animation: float 2.5s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* ====== CONTAINER ====== */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+/* ====== CARTE ====== */
+.section-title {
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 3px 3px #000;
+    color: #ffd800;
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.card {
+    width: 200px;
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 15px;
+    border: 5px solid #444;
+    text-align: center;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+/* Rarità colore */
+.common { border-color: #bbb; }
+.rare { border-color: #ff8c00; }
+.epic { border-color: #a200ff; }
+.legendary { border-color: #00eaff; }
+
+/* Hover */
+.card:hover {
+    transform: scale(1.08) rotate(-1deg);
+    box-shadow: 0 0 20px #ffd800;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ====== BOTTONE ====== */
+.btn {
+    display: inline-block;
+    background: #ffd800;
+    color: #000;
+    padding: 15px 25px;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    text-decoration: none;
+    text-shadow: none;
+    margin-top: 40px;
+    transition: .2s;
+}
+
+.btn:hover {
+    background: #ffae00;
+    transform: scale(1.1);
+}
+
+/* ====== FOOTER ====== */
+footer {
+    text-align: center;
+    background: #0c112b;
+    padding: 30px;
+    color: #ccc;
+    margin-top: 50px;
+    border-top: 5px solid #d9a300;
+}
+</style>
+</head>
+
+<body>
+<!--La flag è:-->
+<!--SPWGR{H0G_R1D3R}-->
+<!-- ===== NAVBAR ===== -->
+<nav>
+    <h1>Clash Royale</h1>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Carte</a></li>
+        <li><a href="#">Arena</a></li>
+        <li><a href="#">Deck Builder</a></li>
+    </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+    <h2>Benvenuto nella Royale Fan Page!</h2>
+</div>
+
+<!-- ===== CARTE ===== -->
+<div class="container">
+    <h2 class="section-title">Carte Popolari</h2>
+    <div class="cards">
+        <div class="card epic">
+            <img src="{{url_for('static',filename='img/PEKKACard.webp')}}" alt="PEKKA">
+            <h3>P.E.K.K.A</h3>
+        </div>
+
+        <div class="card rare">
+            <img src="{{url_for('static',filename='img/WizardCard.webp')}}" alt="Wizard">
+            <h3>Stregone</h3>
+        </div>
+
+        <div class="card rare">
+            <img src="{{url_for('static',filename='img/GiantCard.png')}}" alt="Giant">
+            <h3>Gigante</h3>
+        </div>
+
+        <div class="card epic">
+            <img src="{{url_for('static',filename='img/BabyDragonCard.webp')}}" alt="Baby Dragon">
+            <h3>Baby Dragon</h3>
+        </div>
+
+        <div class="card legendary">
+            <img src="{{url_for('static',filename='img/ElectroWizardCard.webp')}}" alt="Electro Wizard">
+            <h3>Stregone Elettrico</h3>
+        </div>
+
+        <div class="card common">
+            <img src="{{url_for('static',filename='img/KnightCard.webp')}}" alt="Knight">
+            <h3>Cavaliere</h3>
+        </div>
+
+    </div>
+    <div class="container">
+        <h2 class="section-title">Le carte migliori</h2>
+        <div class="cards">
+            <div class="card rare">
+                <img src="{{url_for('static',filename='img/HogRiderCard.webp')}}" alt="HogRider">
+                <h3>Domatore</h3>
+            </div>
+
+        </div>
+
+    <div style="text-align:center;">
+        <a href="#" class="btn">Vedi tutte le carte</a>
+    </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer> 
+    Pagina NON ufficiale
+</footer>
+
+</body>
+</html>

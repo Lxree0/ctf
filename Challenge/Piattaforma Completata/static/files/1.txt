@@ -1,0 +1,6 @@
+Frase da decifrare: 
+-- ----- .-• ••• ...-- ||| -.-. ----- -.. ...--
+
+al posto di ||| nella flag ci sarà un _
+
+
