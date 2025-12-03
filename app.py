@@ -4,25 +4,27 @@ from datetime import datetime
 import mysql.connector
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # Cambialo in produzione
+app.secret_key = "G10RG1C7F"
 
 # ---------------------------------------------------------
 # DATABASE
 # ---------------------------------------------------------
 def get_db_connection():
     return mysql.connector.connect(
-        host="127.0.0.1",
+        host="192.168.51.245",
+        user="admctf",
+        password="l0r3nz01306!",
+        database="ctfdashboard"
+)
+'''
+def get_db_connection():
+    return mysql.connector.connect(
+        host="172.0.0.1",
         user="admin",
         password="l0r3nz01306!",
-        database="CTFDashboard"
+        database="ctfdashboard"
 )
-# def get_db_connection():
-#     return mysql.connector.connect(
-#         host="localhost",
-#         user="user",
-#         password="user",
-#         database="ctf_platform"
-#     )
+'''
 
 def get_db():
     return get_db_connection()
