@@ -4,27 +4,25 @@ from datetime import datetime
 import mysql.connector
 
 app = Flask(__name__)
-app.secret_key = "G10RG1C7F"
+app.secret_key = "supersecretkey"  # Cambialo in produzione
 
 # ---------------------------------------------------------
 # DATABASE
 # ---------------------------------------------------------
 def get_db_connection():
     return mysql.connector.connect(
-        host="192.168.51.245",
-        user="admctf",
-        password="l0r3nz01306!",
-        database="ctfdashboard"
-)
-'''
-def get_db_connection():
-    return mysql.connector.connect(
-        host="172.0.0.1",
+        host="127.0.0.1",
         user="admin",
         password="l0r3nz01306!",
-        database="ctfdashboard"
+        database="CTFDashboard"
 )
-'''
+# def get_db_connection():
+#     return mysql.connector.connect(
+#         host="localhost",
+#         user="user",
+#         password="user",
+#         database="ctf_platform"
+#     )
 
 def get_db():
     return get_db_connection()
@@ -180,15 +178,8 @@ def challenge_page(challenge_id):
         WHERE user_id=%s AND is_correct=1
     """, (session["user_id"],))
     last = cursor.fetchone()
-    last_completed = last["last_completed"] or 0  # Se nulla, 0
+    last_completed = last["last_completed"] or 0  
 
-    # Blocca accesso se l'utente non ha completato la challenge precedente
-    # ATTENZIONE: Questa logica è sequenziale (ID successivo), non tiene conto della categoria.
-    if challenge_id > last_completed + 1:
-        cursor.close()
-        db.close()
-        flash("Devi completare le challenge precedenti prima!")
-        return redirect("/dashboard")
 
     cursor.close()
     db.close()
