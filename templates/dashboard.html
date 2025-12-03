@@ -30,7 +30,9 @@
 
                     {% elif challenge.id > 1 and (challenge.id - 1) not in
                     completed %}
-                    <p style="color:#ff6347;">Bloccato🔒</p>
+                    <a
+                        href="{{ url_for('challenge_page', challenge_id=challenge.id) }}"><button>Apri
+                            Challenge</button></a>
 
                     {% else %}
                     <a
