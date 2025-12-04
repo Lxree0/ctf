@@ -9,13 +9,13 @@ CARDS = {
         "image": "img/PEKKACard.webp",
         "description": "Una guerriera pesantemente corazzata con attacchi devastanti."
     },
-    "wizard": {
+    "stregone": {
         "name": "Stregone",
         "rarity": "rare",
         "image": "img/WizardCard.webp",
         "description": "Lancia potenti palle di fuoco a distanza."
     },
-    "giant": {
+    "gigante": {
         "name": "Gigante",
         "rarity": "rare",
         "image": "img/GiantCard.png",
@@ -27,17 +27,11 @@ CARDS = {
         "image": "img/BabyDragonCard.webp",
         "description": "Sputa fuoco ad area devastando gruppi di nemici."
     },
-    "hog-rider": {
-        "name": "FLAG",
-        "rarity": "rare",
-        "image": "img/HogRiderCard.webp",
-        "description": "LA FLAG NON é QUI"
-    },
     "flag": {
         "name": "FLAG",
         "rarity": "rare",
         "image": "img/flag.webp",
-        "description": "LA Flag è: SPWGRG{TR4V3RS3_TH3_P4TH}"
+        "description": "SPWGRG{TR4V3RS3_TH3_P4TH}"
     }
 }
 
