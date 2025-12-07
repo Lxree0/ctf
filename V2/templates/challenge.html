@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{ challenge.title }} - Challenge</title>
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='css/style_dashboard.css') }}">
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="{{ url_for('dashboard') }}"
+                    class="nav-logo">CyberTrials</a>
+                <div class="nav-right">
+                    <span class="nav-username">👤 {{ username }}</span>
+                    <a href="{{url_for('dashboard')}}" class="nav-logout">
+                        Home</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Challenge Wrapper -->
+        <div class="challenge-wrapper">
+            <div class="ctf-box">
+                <h2>{{ challenge.title }}</h2>
+                <p><strong>Categoria:</strong> {{ challenge.category }}</p>
+                <p><strong>Punti:</strong> {{ challenge.points }}</p>
+                <p>{{ challenge.description }}</p>
+
+                <!-- Allegati -->
+                {% if attachments %}
+                <div class="attachments">
+                    <h3>📎 Allegati</h3>
+                    <ul>
+                        {% for att in attachments %}
+                        {% if att.type == "link" %}
+                        <li><a href="{{ att.url }}" target="_blank">🌐 {{
+                                att.name }}</a></li>
+                        {% elif att.type == "file" %}
+                        <li><a href="{{ att.url }}" download
+                                style="text-decoration: none;">📥 {{ att.name
+                                }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                <!-- Hint -->
+                <!-- HINT BUTTON + MODAL -->
+                {% if challenge.hint1 or challenge.hint2 %}
+                <button id="openHints" class="hint-button">Mostra Suggerimenti
+                    💡</button>
+
+                <!-- MODAL -->
+                <div id="hintsModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>💡 Suggerimenti</h3>
+                        <ul>
+                            {% if challenge.hint1 %}<li>{{ challenge.hint1
+                                }}</li>{% endif %}
+                            {% if challenge.hint2 %}<li>{{ challenge.hint2
+                                }}</li>{% endif %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+
+                <br><br>
+                <!-- Form di submit -->
+                {% if not is_completed %}
+                <form action="{{ url_for('submit') }}" method="post">
+                    <input type="hidden" name="challenge_id"
+                        value="{{ challenge.id }}">
+                    <input type="text" name="flag"
+                        placeholder="SPWGRG{inserisci_la_flag}" required>
+                    <button type="submit">Submit</button>
+                </form>
+                {% else %}
+                <p style="color: green; font-weight: bold;">✅ Hai già completato
+                    questa challenge!</p>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="login-footer">
+            <p>© 2025 CyberSecurity Dashboard — All Rights Reserved</p>
+            <p>Platform created By Lorenzo Lega and Simone Giove</p>
+            <div class="footer-links">
+                <a href="{{ url_for('PlatformCred') }}">Platform & Challs
+                    Credits</a>
+                <a href="{{ url_for('about') }}">About Us</a>
+                <a href="{{ url_for('contact') }}">Contact</a>
+            </div>
+        </footer>
+
+        <script>
+            const modal = document.getElementById("hintsModal");
+            const btn = document.getElementById("openHints");
+            const closeBtn = document.querySelector(".close");
+
+            // Apri la modale
+            btn.onclick = () => {
+                modal.style.display = "block";
+            };
+
+            // Chiudi cliccando sulla X
+            closeBtn.onclick = () => {
+                modal.style.display = "none";
+            };
+
+            // Chiudi cliccando fuori dalla finestra
+            window.onclick = (event) => {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            };
+        </script>
+
+    </body>
+</html>

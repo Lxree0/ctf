@@ -1,0 +1,91 @@
+/* =========================================================
+   VARIABILI COLORI (stesso schema della dashboard)
+   ========================================================= */
+:root {
+    --color-bg-dark: #121212;
+    --color-bg-card: #1e1e1e;
+    --color-accent-green: #00ff7f;
+    --color-accent-cyan: #00ffff;
+    --color-text-light: #e0e0e0;
+    --color-shadow-cyan: rgba(0, 255, 255, 0.3);
+    --color-shadow-green: rgba(0, 255, 127, 0.3);
+    --color-error: #ff3333;
+}
+
+/* =========================================================
+   BODY GENERALE
+   ========================================================= */
+body {
+    margin: 0;
+    font-family: 'Consolas', 'Courier New', monospace;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+/* =========================================================
+   CONTENITORE RISULTATO
+   ========================================================= */
+.result-container {
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-accent-cyan);
+    padding: 40px 60px;
+    border-radius: 10px;
+    text-align: center;
+
+    box-shadow: 0 0 20px var(--color-shadow-cyan);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* =========================================================
+   TITOLI RISULTATO
+   ========================================================= */
+.result-success {
+    color: var(--color-accent-green);
+    text-shadow: 0 0 10px var(--color-shadow-green);
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.result-fail {
+    color: var(--color-error);
+    text-shadow: 0 0 10px rgba(255, 70, 70, 0.4);
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+/* =========================================================
+   LINK RITORNO ALLA DASHBOARD
+   ========================================================= */
+.result-container a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+
+    background: var(--color-accent-cyan);
+    color: var(--color-bg-dark);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 6px;
+
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
+}
+
+.result-container a:hover {
+    background: var(--color-accent-green);
+    box-shadow: 0 0 15px var(--color-accent-green);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   ANIMAZIONE DI COMPARSA
+   ========================================================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

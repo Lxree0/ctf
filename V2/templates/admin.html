@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Dashboard</title>
+        <link rel="stylesheet"
+            href="{{ url_for('static', filename='css/style_admin.css') }}">
+    </head>
+    <body>
+
+        <h1>Admin Dashboard</h1>
+
+        <!-- Lista Utenti -->
+        <div class="table-container">
+            <div class="group">
+                <h2>Lista Utenti</h2>
+                <table>
+                    <thead>
+                        <tr>
+
+                            <th>Username</th>
+                            <th>Challenge Completate</th>
+                            <th>Punteggio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.completed_count }}</td>
+                            <td>{{ user.score }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Pulsante per aggiungere challenge -->
+        <div class="add-challenge-button">
+            <a href="{{ url_for('add_challenge') }}">
+                <button>Aggiungi Nuova Challenge</button>
+            </a>
+        </div>
+
+    </body>
+</html>
