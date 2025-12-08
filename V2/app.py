@@ -1,9 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime
 import mysql.connector
 import os
-from werkzeug.utils import secure_filename
 import shutil
 
 
