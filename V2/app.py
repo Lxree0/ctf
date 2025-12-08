@@ -6,7 +6,7 @@ import shutil
 
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # Cambialo in produzione
+app.secret_key = "G1oRg1C7f"  # Cambialo in produzione
 
 # ---------------------------------------------------------
 # DATABASE
