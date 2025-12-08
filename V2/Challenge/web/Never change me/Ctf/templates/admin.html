@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styleWifiSpwnzato.css') }}">
+    <script>
+        function togglePassword() {
+            const pwdField = document.getElementById("wifi-password");
+            const eyeIcon = document.getElementById("eye-icon");
+            if (pwdField.type === "password") {
+                pwdField.type = "text";
+                eyeIcon.textContent = "🙈";
+            } else {
+                pwdField.type = "password";
+                eyeIcon.textContent = "👁️";
+            }
+        }
+
+        function openWlanPanel() {
+            document.getElementById("wlan-panel").style.display = "block";
+        }
+
+        function closeWlanPanel() {
+            document.getElementById("wlan-panel").style.display = "none";
+        }
+
+        function goToFca() {
+            window.location.href = "https://youtu.be/I_NkBrDmGxM?si=tqoLBGH0P_FJ_QfI"; 
+        }
+
+        function toggleWifi() {
+            const status = document.getElementById("wifi-status");
+            if (status.textContent === "Attiva") {
+                status.textContent = "Disattiva";
+                alert("WiFi disattivato 📴");
+            } else {
+                status.textContent = "Attiva";
+                alert("WiFi attivato 📶");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-box">
+            <h1>Benvenuto Admin 👑</h1>
+            <div class="options">
+                <button onclick="goToFca()">⚙️ Modalità festa</button>
+                <button onclick="goToFca()">🔒 Cambia password</button>
+                <button onclick="goToFca()">🌍 Utenti online</button>
+                <button onclick="goToFca()">🎨 Personalizza tema</button>
+                <button onclick="openWlanPanel()">📡 WLAN Settings</button>
+            </div>
+        </div>
+
+        <!-- Pannello WLAN laterale -->
+        <div id="wlan-panel" class="wlan-panel">
+            <span class="close-btn" onclick="closeWlanPanel()">✖</span>
+            <h2>📶 WLAN Config</h2>
+            <p><strong>SSID:</strong> <span id="wifi-ssid">Spwnzato_WiFi</span></p>
+            <p>
+                <strong>Password:</strong>
+                <input type="password" id="wifi-password" value="SPWGRG{4LW415_CH4NGE_,M3!!}" readonly>
+                <span id="eye-icon" onclick="togglePassword()">👁️</span>
+            </p>
+            <p><strong>Status:</strong> <span id="wifi-status">Attiva</span></p>
+            <div class="wlan-buttons">
+                <button onclick="toggleWifi()">🔌 Attiva/Disattiva</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

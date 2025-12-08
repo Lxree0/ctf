@@ -1,0 +1,232 @@
+/* Stile generale */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Sfondo marino con onde */
+    background: linear-gradient(180deg, #87ceeb 0%, #e0f7ff 100%);
+    background-attachment: fixed;
+    overflow: hidden;
+    position: relative; /* per gestire z-index delle pseudo-elemento */
+}
+
+/* Onde animate */
+body::before, body::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200px;
+    left: -50%;
+    background: rgba(255,255,255,0.6);
+    border-radius: 100%;
+    animation: wave 8s infinite linear;
+    pointer-events: none;
+    z-index: 0; /* onde dietro */
+}
+
+body::after {
+    top: 70%;
+    animation-duration: 12s;
+    opacity: 0.4;
+}
+
+/* Animazione onde */
+@keyframes wave {
+    from { transform: translateX(0); }
+    to { transform: translateX(50%); }
+}
+
+/* Box comune (login e admin) */
+.login-box, .admin-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    text-align: center;
+    animation: floatUp 1s ease;
+    width: 350px;
+    position: relative;
+    z-index: 10; /* sopra le onde */
+}
+
+/* Titoli */
+h1, h2 {
+    color: #004f6d; /* blu profondo */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px #fff;
+}
+
+/* Input login */
+.textbox input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #004f6d;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+    background: #e0f7ff;
+}
+
+.textbox input:focus {
+    border-color: #00bfff;
+    background: #f0fcff;
+}
+
+/* Bottoni */
+.btn, .options button {
+    background: #00bfff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    margin: 8px;
+    animation: bounce 2s infinite;
+}
+
+.btn:hover, .options button:hover {
+    background: #004f6d;
+    transform: scale(1.1);
+}
+
+/* Modale WLAN */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 320px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+    border: 3px solid #00bfff;
+}
+
+.close-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    color: #004f6d;
+}
+
+/* Password WLAN */
+#wifi-password {
+    border: 2px solid #00bfff;
+    border-radius: 8px;
+    padding: 5px;
+    width: 180px;
+    margin-right: 10px;
+    background: #e0f7ff;
+}
+
+#eye-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Animazioni */
+@keyframes floatUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Layout admin */
+.admin-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Box principale admin */
+.admin-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    text-align: center;
+    width: 300px;
+    position: relative;
+    z-index: 10; /* sopra le onde */
+}
+
+/* Pannello WLAN laterale */
+.wlan-panel {
+    display: none;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border: 3px solid #00bfff;
+    animation: slideIn 0.5s ease;
+    position: relative;
+    z-index: 10; /* sopra le onde */
+}
+
+.wlan-buttons button {
+    background: #00bfff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 5px;
+}
+
+.wlan-buttons button:hover {
+    background: #004f6d;
+    transform: scale(1.05);
+}
+
+/* Pulsante Connetti */
+.connect-btn {
+    background: #00bfff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.connect-btn:hover {
+    background: #004f6d;
+    transform: scale(1.1);
+}
+
+/* Animazione pannello */
+@keyframes slideIn {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}

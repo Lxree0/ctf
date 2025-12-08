@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>{{ card.name }}</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+<style>
+body {
+    background: #0e1a45;
+    color: white;
+    font-family: "Bangers", cursive;
+    text-align: center;
+    padding: 40px;
+}
+
+.card-box {
+    width: 350px;
+    margin: auto;
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 20px;
+    border: 5px solid #ffd800;
+}
+
+.card-box img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #ffd800;
+    font-size: 2rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card-box">
+    <img src="{{ url_for('static', filename=card.image) }}" alt="{{ card.name }}">
+    <h1>{{ card.name }}</h1>
+    <p>{{ card.description }}</p>
+</div>
+
+<a href="/" class="back-link">⬅ Torna indietro</a>
+
+</body>
+</html>
