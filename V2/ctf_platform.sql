@@ -80,3 +80,5 @@ INSERT INTO challenges (title, description, flag, category, hint1, hint2, attach
 ('UNIQUE RIDERS LOL', 'Un percorso segreto attende chi ha il coraggio di esplorare oltre l\'indirizzo visibile.', 'SPWGRG{TR4V3RS3_TH3_P4TH}', 'Web', NULL, NULL, 'https://uniqueriderlol.giorgictf.it/', NULL, NULL),
 
 ('GIORGI BISCUITS', 'Dolci e croccanti, nascondono un piccolo segreto che si rivela solo a chi guarda più a fondo.', 'SPWGRG{1M_5O_D3L1C10U5}', 'Web', NULL, NULL, 'https://giorgibiscuits.giorgictf.it/', NULL, NULL);
+
+COMMIT;
