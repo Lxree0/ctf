@@ -16,7 +16,7 @@ def get_db_connection():
         host="127.0.0.1",
         user="admin",
         password="l0r3nz01306!",
-        database="CTFDashboard"
+        database="ctfdashboard"
 )
 
 def get_db():
