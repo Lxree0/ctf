@@ -492,7 +492,7 @@ def about():
 
 @app.route("/stats")
 def stats():
-    if "user_id" not in session:
+    if "user_id" not in session or session["user_id"] == "guest":
         return redirect("/")
 
     db = get_db_connection()
@@ -525,4 +525,5 @@ def stats():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
