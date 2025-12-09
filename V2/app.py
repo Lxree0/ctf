@@ -198,7 +198,7 @@ def dashboard():
 # ---------------------------------------------------------
 @app.route("/challenge/<int:challenge_id>")
 def challenge_page(challenge_id):
-    if "user_id" not in session or session["user_id"] == "guest":
+    if "user_id" not in session:
         flash("Devi effettuare il login per accedere alle challenge.", "error")
         return redirect("/")
 
@@ -525,3 +525,4 @@ def stats():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
