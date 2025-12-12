@@ -340,3 +340,34 @@ button.login-btn:hover {
     font-size: 1rem;
     padding: 6px 8px; /* ← padding interno per il testo */
 }
+
+
+/* ============================= */
+/*        RESPONSIVE LOGIN       */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    .login-box {
+        width: 90% !important;
+        padding: 25px;
+        margin: 0 auto;
+    }
+
+    input, button {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .login-box {
+        width: 95% !important;
+        padding: 20px;
+    }
+
+    input, button {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+}

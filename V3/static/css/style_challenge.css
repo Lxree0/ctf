@@ -86,3 +86,57 @@ td[data-status="No"] {
     color: #ff5252;
 }
 
+/* ============================= */
+/*      RESPONSIVE CHALLENGE     */
+/* ============================= */
+
+@media (max-width: 1024px) {
+    .table-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 1.9rem;
+    }
+
+    .table-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    th, td {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+
+    .group {
+        padding: 15px;
+    }
+
+    /* Per nascondere colonne non essenziali se servisse */
+    .hide-mobile {
+        display: none !important;
+    }
+}

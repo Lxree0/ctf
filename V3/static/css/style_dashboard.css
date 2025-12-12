@@ -546,3 +546,64 @@ body {
     background-color: #c9f7c5;
     color: #084f14;
 }
+
+/* ============================= */
+/*      RESPONSIVE DASHBOARD     */
+/* ============================= */
+
+@media (max-width: 1024px) {
+    .dashboard-wrapper {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .card, .box, .widget {
+        padding: 18px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .sidebar {
+        transform: scale(0.9);
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .card, .box, .widget {
+        padding: 14px;
+    }
+
+    th, td {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+
+    /* Nasconde colonne non vitali */
+    .hide-mobile {
+        display: none !important;
+    }
+}

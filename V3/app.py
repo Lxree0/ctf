@@ -18,14 +18,14 @@ def get_db_connection():
         host="127.0.0.1",
         user="admin",
         password="l0r3nz01306!",
-        database="CTFDashboard"
+        database="ctfDashboard"
 )
 # def get_db_connection():
 #     return mysql.connector.connect(
 #         host="172.16.51.245",
 #         user="admctf",
 #         password="l0r3nz01306!",
-#         database="CTFDashboard"
+#         database="ctfDashboard"
 # )
 
 def get_db():
