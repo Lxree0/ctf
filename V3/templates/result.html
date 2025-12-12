@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Risultato Submit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_result.css') }}">
+</head>
+<body>
+    <div class="result-container">
+        {% if result %}
+            <h1 class="result-success">Flag corretta! ✅</h1>
+        {% else %}
+            <h1 class="result-fail">Flag sbagliata ❌</h1>
+        {% endif %}
+        <a href="/dashboard">Torna alla Dashboard</a>
+    </div>
+</body>
+</html>
