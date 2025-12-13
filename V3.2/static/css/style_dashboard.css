@@ -547,6 +547,32 @@ body {
     color: #084f14;
 }
 
+
+.close-dashboard {
+    position: fixed; /* rimane fisso in alto a destra */
+    top: 80px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    background: #f2f2f2;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background 0.3s, color 0.3s;
+    z-index: 1000; /* sopra tutti gli altri elementi */
+}
+
+.close-dashboard:hover {
+    background: #e74c3c;
+    color: white;
+}   
+
 /* ============================= */
 /*      RESPONSIVE DASHBOARD     */
 /* ============================= */

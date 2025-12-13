@@ -8,7 +8,7 @@ import shutil
 
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # Cambialo in produzione
+app.secret_key = "G1oRg1C7f"  # Cambialo in produzione
 
 # ---------------------------------------------------------
 # DATABASE
@@ -18,14 +18,14 @@ def get_db_connection():
         host="127.0.0.1",
         user="admin",
         password="l0r3nz01306!",
-        database="ctfDashboard"
+        database="ctfdashboard"
 )
 # def get_db_connection():
 #     return mysql.connector.connect(
 #         host="172.16.51.245",
 #         user="admctf",
 #         password="l0r3nz01306!",
-#         database="ctfDashboard"
+#         database="ctfdashboard"
 # )
 
 def get_db():
@@ -102,11 +102,12 @@ def login():
 
                     db.commit()
 
-                    error = "Sessione scaduta: il tuo account è stato eliminato. Registrati di nuovo."
+                    
                     session.clear()
+                    flash("Sessione scaduta: il tuo account è stato eliminato. Registrati di nuovo.", "error")
                     cursor.close()
                     db.close()
-                    return render_template("login.html", error=error)
+                    return redirect(url_for("login"))
 
             # Aggiorno timestamp login solo se l'utente NON è stato eliminato
             cursor.execute(
@@ -229,7 +230,7 @@ def dashboard():
 # ---------------------------------------------------------
 @app.route("/challenge/<int:challenge_id>")
 def challenge_page(challenge_id):
-    if "user_id" not in session or session["user_id"] == "guest":
+    if "user_id" not in session:
         flash("Devi effettuare il login per accedere alle challenge.", "error")
         return redirect("/")
 
@@ -522,7 +523,7 @@ def about():
 
 @app.route("/stats")
 def stats():
-    if "user_id" not in session:
+    if "user_id" not in session or session["user_id"] == "guest":
         return redirect("/")
 
     db = get_db_connection()
